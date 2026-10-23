@@ -385,7 +385,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                     <div class="p-3.5 rounded-xl bg-[#ECF7E1] border-2 border-[#76B82A]">
                         <span class="font-black text-sm text-[#1E4611] block mb-1">📍 Zona 1: Residencial Apodaca / Centro</span>
-                        <p class="text-gray-700">Cobertura de 5 km alrededor de <b>Nuevo Mezquital / Residencial Apodaca</b> (Horario vespertino / fin de semana a convenir).</p>
+                        <p class="text-gray-700">Cobertura de 3 km alrededor de <b>Nuevo Mezquital / Residencial Apodaca</b> (Horario vespertino / fin de semana a convenir).</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-[#ECF7E1] border-2 border-[#76B82A]">
                         <span class="font-black text-sm text-[#1E4611] block mb-1">📍 Zona 2: San Nicolás (Col. Año de Juárez)</span>
@@ -718,7 +718,7 @@
                 <div>
                     <label class="block font-extrabold text-[#1E4611] mb-0.5">📍 3. Punto de Entrega Preferido:</label>
                     <select id="deliveryZoneSelect" class="w-full px-3 py-1.5 rounded-lg border border-gray-300 bg-white font-bold text-[#1E4611] text-xs">
-                        <option value="Zona Apodaca (Radio 5km Residencial Apodaca / Nuevo Mezquital)">📍 Zona Apodaca (Cercanías Residencial Apodaca / Radio 5km)</option>
+                        <option value="Zona Apodaca (Radio 3km Residencial Apodaca / Nuevo Mezquital)">📍 Zona Apodaca (Cercanías Residencial Apodaca / Radio 3km)</option>
                         <option value="Zona San Nicolás (Radio 2km Col. Año de Juárez / Allende)">📍 Zona San Nicolás (Col. Año de Juárez / Radio 2km)</option>
                         <option value="Envío por App (Uber Flash / Didi Entrega a cargo del cliente)">🛵 Envío por Uber Flash / Didi Entrega (A cargo del cliente)</option>
                     </select>
@@ -1361,7 +1361,7 @@
                     maxZoom: 19,
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(leafletMapInstance);
-              L.circle([25.7765, -100.2050], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 5000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 1: Apodaca / Nuevo Mezquital</b><br>Radio: 5 km');
+              L.circle([25.7765, -100.2050], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 5000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 1: Apodaca / Nuevo Mezquital</b><br>Radio: 3 km');
                 L.circle([25.7485, -100.2780], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 2000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 2: San Nicolás (Col. Año de Juárez)</b><br>Radio: 2 km');
               setTimeout(() => leafletMapInstance.invalidateSize(), 200);
             }
