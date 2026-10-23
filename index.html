@@ -1357,11 +1357,10 @@
               const mapContainer = document.getElementById('deliveryMapContainer');
               if (!mapContainer || typeof L === 'undefined') return;
               leafletMapInstance = L.map('deliveryMapContainer').setView([25.7625, -100.2415], 12);
-              L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                attribution: '© OpenStreetMap · © CARTO',
-                subdomains: 'abcd',
-                maxZoom: 19
-              }).addTo(leafletMapInstance);
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(leafletMapInstance);
               L.circle([25.7765, -100.2050], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 5000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 1: Apodaca / Nuevo Mezquital</b><br>Radio: 5 km');
               L.circle([25.7485, -100.2780], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 5000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 2: San Nicolás (Col. Año de Juárez)</b><br>Radio: 5 km');
               setTimeout(() => leafletMapInstance.invalidateSize(), 200);
