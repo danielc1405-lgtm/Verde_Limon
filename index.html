@@ -84,7 +84,7 @@
             <button type="button" onclick="switchTab('camisetas')" id="tab-camisetas" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-gray-800 border-2 border-[#A8D164] cursor-pointer">👕 Camisetas</button>
             <button type="button" onclick="switchTab('tazas')" id="tab-tazas" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-gray-800 border-2 border-[#A8D164] cursor-pointer">☕ Tazas</button>
             <button type="button" onclick="switchTab('pines')" id="tab-pines" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-gray-800 border-2 border-[#A8D164] cursor-pointer">🧷 Pines (Botones)</button>
-            <button type="button" onclick="switchTab('entregas')" id="tab-entregas" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-[#1E4611] border-2 border-[#76B82A] cursor-pointer">📍 Zonas Entrega (5km)</button>
+            <button type="button" onclick="switchTab('entregas')" id="tab-entregas" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-[#1E4611] border-2 border-[#76B82A] cursor-pointer">📍 Zonas Entrega (2km)</button>
             <button type="button" onclick="switchTab('photos')" id="tab-photos" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-[#1E4611] border-2 border-[#76B82A] cursor-pointer">📸 Fotos Trabajos</button>
             <button type="button" onclick="switchTab('makerworld')" id="tab-makerworld" class="cat-tab whitespace-nowrap px-4 py-2 rounded-xl font-bold text-xs sm:text-sm bg-white text-[#1E4611] border-2 border-[#76B82A] cursor-pointer">✨ Cotizar MakerWorld</button>
         </div>
@@ -389,7 +389,7 @@
                     </div>
                     <div class="p-3.5 rounded-xl bg-[#ECF7E1] border-2 border-[#76B82A]">
                         <span class="font-black text-sm text-[#1E4611] block mb-1">📍 Zona 2: San Nicolás (Col. Año de Juárez)</span>
-                        <p class="text-gray-700">Cobertura de 5 km alrededor de <b>Allende / Año de Juárez, San Nicolás de los Garza</b> (Horario laboral).</p>
+                        <p class="text-gray-700">Cobertura de 2 km alrededor de <b>Allende / Año de Juárez, San Nicolás de los Garza</b> (Horario laboral).</p>
                     </div>
                     <div class="p-3.5 rounded-xl bg-amber-50 border-2 border-amber-400">
                         <span class="font-black text-sm text-amber-900 block mb-1">🛵 Opción 3: Uber Flash / Didi Entrega</span>
@@ -719,7 +719,7 @@
                     <label class="block font-extrabold text-[#1E4611] mb-0.5">📍 3. Punto de Entrega Preferido:</label>
                     <select id="deliveryZoneSelect" class="w-full px-3 py-1.5 rounded-lg border border-gray-300 bg-white font-bold text-[#1E4611] text-xs">
                         <option value="Zona Apodaca (Radio 5km Residencial Apodaca / Nuevo Mezquital)">📍 Zona Apodaca (Cercanías Residencial Apodaca / Radio 5km)</option>
-                        <option value="Zona San Nicolás (Radio 5km Col. Año de Juárez / Allende)">📍 Zona San Nicolás (Col. Año de Juárez / Radio 5km)</option>
+                        <option value="Zona San Nicolás (Radio 2km Col. Año de Juárez / Allende)">📍 Zona San Nicolás (Col. Año de Juárez / Radio 2km)</option>
                         <option value="Envío por App (Uber Flash / Didi Entrega a cargo del cliente)">🛵 Envío por Uber Flash / Didi Entrega (A cargo del cliente)</option>
                     </select>
                 </div>
@@ -1362,7 +1362,7 @@
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 }).addTo(leafletMapInstance);
               L.circle([25.7765, -100.2050], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 5000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 1: Apodaca / Nuevo Mezquital</b><br>Radio: 5 km');
-              L.circle([25.7485, -100.2780], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 5000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 2: San Nicolás (Col. Año de Juárez)</b><br>Radio: 5 km');
+                L.circle([25.7485, -100.2780], { color: '#1E4611', fillColor: '#76B82A', fillOpacity: 0.28, radius: 2000 }).addTo(leafletMapInstance).bindPopup('<b>📍 Zona 2: San Nicolás (Col. Año de Juárez)</b><br>Radio: 2 km');
               setTimeout(() => leafletMapInstance.invalidateSize(), 200);
             }
 
