@@ -48,13 +48,15 @@
             </div>
 
             <div class="flex items-center gap-1.5 sm:gap-2">
-                <button type="button" id="btnBackToCatalog" onclick="setRole('public')" class="hidden text-xs font-extrabold px-3 py-2 rounded-xl bg-white text-[#1E4611] shadow cursor-pointer">⬅️ Catálogo</button>
-                <button type="button" id="btnMyOrdersHeader" onclick="toggleMyOrdersModal()" class="bg-[#ECF7E1] hover:bg-[#d8f0c2] text-[#1E4611] border border-[#76B82A] font-extrabold px-2.5 sm:px-3 py-2 rounded-xl text-xs flex items-center gap-1 shadow-sm cursor-pointer">📦 <span>Mis Pedidos</span></button>
-                <button type="button" id="btnCartHeader" onclick="toggleCart()" class="bg-[#76B82A] hover:bg-[#65a021] text-white font-bold px-3 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow cursor-pointer">
-                    <span>🛒 Pedido</span>
+                <button type="button" id="btnBackToCatalog" onclick="setRole('public')" class="hidden text-xs font-extrabold px-2.5 py-2 rounded-xl bg-white text-[#1E4611] shadow cursor-pointer">⬅️ Catálogo</button>
+                <button type="button" id="btnMyOrdersHeader" onclick="toggleMyOrdersModal()" class="bg-[#ECF7E1] hover:bg-[#d8f0c2] text-[#1E4611] border border-[#76B82A] font-extrabold px-2.5 sm:px-3 py-2 rounded-xl text-xs flex items-center gap-1 shadow-sm cursor-pointer">
+                    📦 <span class="hidden sm:inline">Mis Pedidos</span>
+                </button>
+                <button type="button" id="btnCartHeader" onclick="toggleCart()" class="bg-[#76B82A] hover:bg-[#65a021] text-white font-bold px-2.5 sm:px-3 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow cursor-pointer">
+                    <span>🛒 <span class="hidden sm:inline">Pedido</span></span>
                     <span id="cartCountBadge" class="bg-[#1E4611] text-white text-[11px] px-1.5 py-0.5 rounded-full">0</span>
                 </button>
-                <button type="button" onclick="openPin()" title="Acceso Socio / Studio" class="w-9 h-9 rounded-xl border border-gray-200 bg-gray-50 flex items-center justify-center text-sm shadow-sm cursor-pointer"><span id="lockIcon">🔒</span></button>
+                <button type="button" onclick="openPin()" title="Acceso Socio / Studio" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-gray-200 bg-gray-50 flex items-center justify-center text-sm shadow-sm cursor-pointer shrink-0"><span id="lockIcon">🔒</span></button>
             </div>
         </div>
     </header>
@@ -95,279 +97,197 @@
     -->
         <!-- SECCIÓN 3D -->
         <div id="sec-3d" class="space-y-4">
-            <!-- EJEMPLOS RÁPIDOS -->
-            <div class="bg-white/95 rounded-2xl shadow-md border-2 border-[#76B82A] overflow-hidden">
-                <button type="button" onclick="toggleQuickSamples()" class="w-full px-4 py-3 bg-[#ECF7E1]/70 hover:bg-[#ECF7E1] flex items-center justify-between text-left cursor-pointer">
-                    <div>
-                        <h3 class="font-extrabold text-xs sm:text-sm text-[#1E4611] flex items-center gap-1.5">
-                            <span>📸 Ver Ejemplos Rápidos de Estilos (Clásicos y Articulados)</span>
-                            <span class="text-[10px] font-bold bg-[#76B82A] text-white px-2 py-0.5 rounded-full">Mostrar / Ocultar</span>
-                        </h3>
-                        <p class="text-[11px] text-gray-600">Toca cualquier ejemplo para cargar su combinación automáticamente</p>
-                    </div>
-                    <span class="w-7 h-7 rounded-lg bg-[#76B82A] text-white font-black flex items-center justify-center text-xs shrink-0">▼</span>
-                </button>
-
-                <div id="quickSamplesBody" class="hidden md:block p-3.5 border-t border-[#A8D164]">
-                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
-                        <button type="button" onclick="loadSample('Nicole','','simple','Rosa Pastel','Blanco','Pacifico','❤️',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center"><span style="font-family:'Pacifico';color:#fff;-webkit-text-stroke:4px #F4A6C1;paint-order:stroke fill;" class="text-xl">Nicole</span></div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Clásico</span><span class="text-[#A8D164]">1 Línea</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('ALBERTO','','chain_blocks','Verde Limón','Blanco','Bungee','❤️',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center gap-0.5">
-                                <span class="px-1 py-0.5 bg-[#76B82A] text-white font-black text-[10px] rounded">A</span>
-                                <span class="px-1 py-0.5 bg-[#76B82A] text-white font-black text-[10px] rounded">L</span>
-                                <span class="px-1 py-0.5 bg-[#76B82A] text-white font-black text-[10px] rounded">B</span>
-                            </div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Articulado</span><span class="text-[#A8D164]">Bloques</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('ANDREA','','clicker','Rosa Pastel','Rosa Pastel','Nunito','❤️',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center">
-                                <span class="px-1.5 py-0.5 bg-[#F4A6C1] rounded flex gap-0.5"><b class="bg-white text-[#F4A6C1] px-1 rounded text-[10px]">A</b><b class="bg-white text-[#F4A6C1] px-1 rounded text-[10px]">N</b></span>
-                            </div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Clicker</span><span class="text-[#A8D164]">Teclas</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('Maria','','puzzle','Amarillo','Blanco','Fredoka','❤️',true)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center gap-0.5">
-                                <span class="px-1 py-0.5 bg-red-500 text-white font-black text-[10px] rounded-full">M</span>
-                                <span class="px-1 py-0.5 bg-amber-400 text-white font-black text-[10px] rounded-full">a</span>
-                                <span class="px-1 py-0.5 bg-blue-500 text-white font-black text-[10px] rounded-full">r</span>
-                            </div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Puzle</span><span class="text-[#A8D164]">Arcoíris</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('SANTIAGO','','beads','Naranja','Blanco','Nunito','🐾',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center gap-0.5">
-                                <span class="w-4 h-4 rounded-full bg-orange-500 text-white font-black text-[9px] flex items-center justify-center">S</span>
-                                <span class="w-4 h-4 rounded-full bg-orange-500 text-white font-black text-[9px] flex items-center justify-center">A</span>
-                                <span class="w-4 h-4 rounded-full bg-orange-500 text-white text-[9px] flex items-center justify-center">🐾</span>
-                            </div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Cuentas</span><span class="text-[#A8D164]">+ Símbolo</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('Sandy','','charm','Azul Cielo / Turquesa','Rosa Pastel','Nunito','❤️',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center"><span style="font-family:'Nunito';font-weight:900;color:#F4A6C1;-webkit-text-stroke:4px #22B8CF;paint-order:stroke fill;" class="text-base">Sandy ❤️</span></div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Con Dije</span><span class="text-[#A8D164]">Figura</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('Daniel','','hayden_1col','Blanco','Blanco','Chewy','❤️',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center"><span style="font-family:'Chewy';color:#F9FAFB;" class="text-xl drop-shadow">Daniel</span></div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>Sin Borde</span><span class="text-[#A8D164]">1 Color</span></div>
-                        </button>
-                        <button type="button" onclick="loadSample('Maria','Elena','double_line','Negro','Blanco','Birthstone','❤️',false)" class="bg-gray-800 p-2 rounded-xl border-2 border-gray-200 hover:border-[#76B82A] text-left cursor-pointer">
-                            <div class="h-11 flex items-center justify-center"><span style="font-family:'Birthstone';color:#fff;-webkit-text-stroke:3.5px #141414;paint-order:stroke fill;" class="text-xl">Maria Elena</span></div>
-                            <div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>2 Líneas</span><span class="text-[#A8D164]">Unidas</span></div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-                <!-- PREVISUALIZADOR -->
-                <div class="lg:col-span-5 sticky top-16 z-30 bg-white rounded-2xl shadow-xl border-2 border-[#76B82A] overflow-hidden">
-                    <div class="bg-[#1E4611] text-white px-3.5 py-2 flex items-center justify-between">
-                        <span class="text-[11px] font-bold uppercase tracking-wider text-[#A8D164]">Tu Diseño en Vivo</span>
-                        <div class="flex items-center gap-1.5">
-                            <button type="button" onclick="previewCurrentDesignFullscreen()" class="text-[10px] bg-white/15 hover:bg-white/25 text-white px-2 py-0.5 rounded font-bold cursor-pointer">🔍 Ampliar</button>
-                            <span id="previewModelBadge" class="text-[10px] bg-[#76B82A] text-white px-2 py-0.5 rounded-full font-bold">Clásico (1 Línea)</span>
-                        </div>
-                    </div>
 
-                    <div onclick="previewCurrentDesignFullscreen()" title="Toca para ver en pantalla completa" class="preview-stage h-48 sm:h-64 flex items-center justify-center p-3 relative overflow-hidden cursor-zoom-in">
-                        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 20px 20px;"></div>
-                        <svg id="keychainSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" class="w-full h-full max-h-52 drop-shadow-[0_10px_8px_rgba(0,0,0,0.65)]">
-                            <!-- CAPA MODULAR PARA ESLABONES ARTICULADOS, CLICKER, PUZLE Y CUENTAS -->
-                            <g id="modularLayer" class="hidden"></g>
+                <!-- COLUMNA IZQUIERDA: NOMBRE + PREVISUALIZADOR (Fijo arriba) -->
+                <div class="lg:col-span-5 space-y-4 sticky top-16 z-30">
 
-                            <!-- CAPA CLÁSICA DE PLACA / CURSIVA / MEDALLA -->
-                            <g id="classicTextLayer">
-                                <g id="roundTagGroup" class="hidden">
-                                    <circle id="roundTagBase" cx="240" cy="112" r="78" fill="#1D4ED8" stroke="#111" stroke-width="4" />
-                                    <circle cx="176" cy="112" r="8" fill="#262f3f" />
-                                    <text id="roundInitialText" x="245" y="150" text-anchor="middle" fill="#ffffff" opacity="0.28" font-size="115" font-weight="900">T</text>
-                                </g>
-                                <g id="metalRingGroup" transform="translate(48, 110)">
-                                    <circle cx="-22" cy="0" r="18" fill="none" stroke="#d1d5db" stroke-width="5" />
-                                    <ellipse cx="-6" cy="0" rx="8" ry="4" fill="none" stroke="#9ca3af" stroke-width="3.5" />
-                                </g>
-                                <g id="leftHoleGroup" transform="translate(62, 110)">
-                                    <circle id="leftEarBase" cx="0" cy="0" r="16" fill="#141414" />
-                                    <circle cx="0" cy="0" r="6.5" fill="#262f3f" />
-                                </g>
-                                <g id="rightHoleGroup" transform="translate(415, 110)" class="hidden">
-                                    <circle id="rightEarBase" cx="0" cy="0" r="15" fill="#141414" />
-                                    <circle cx="0" cy="0" r="6" fill="#262f3f" />
-                                </g>
-                                <g id="charmGroup" transform="translate(452, 110)" class="hidden">
-                                    <ellipse cx="-24" cy="0" rx="9" ry="4" fill="none" stroke="#d1d5db" stroke-width="3" />
-                                    <text id="charmIconText" x="0" y="14" text-anchor="middle" font-size="42">❤️</text>
-                                </g>
-                                <g id="baseShadowLayer" transform="translate(0, 6)">
-                                    <text id="svgTextShadow1" x="250" y="124" text-anchor="middle" fill="#111" stroke="#111" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="56" style="font-family:'Pacifico',cursive;">Linea 1</text>
-                                    <text id="svgTextShadow2" x="250" y="158" text-anchor="middle" fill="#111" stroke="#111" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="48" class="hidden" style="font-family:'Pacifico',cursive;">Linea 2</text>
-                                </g>
-                                <g id="baseColorLayer">
-                                    <text id="svgTextBase1" x="250" y="124" text-anchor="middle" fill="#141414" stroke="#141414" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="56" style="font-family:'Pacifico',cursive;">Linea 1</text>
-                                    <text id="svgTextBase2" x="250" y="158" text-anchor="middle" fill="#141414" stroke="#141414" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="48" class="hidden" style="font-family:'Pacifico',cursive;">Linea 2</text>
-                                </g>
-                                <g id="topColorLayer">
-                                    <text id="svgTextTop1" x="250" y="124" text-anchor="middle" fill="#EF1D26" stroke="#EF1D26" stroke-width="2" stroke-linejoin="round" font-size="56" style="font-family:'Pacifico',cursive;">Linea 1</text>
-                                    <text id="svgTextTop2" x="250" y="158" text-anchor="middle" fill="#EF1D26" stroke="#EF1D26" stroke-width="1.5" stroke-linejoin="round" font-size="48" class="hidden" style="font-family:'Pacifico',cursive;">Linea 2</text>
-                                </g>
-                            </g>
-                        </svg>
-                        <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] sm:text-[11px] text-gray-200 bg-black/50 px-2.5 py-1 rounded-lg">
-                            <span id="liveColorSummary">Base: Negro • Letra: Rojo</span>
-                            <span id="liveFontSummary" class="font-semibold text-[#A8D164]">Fuente: Pacifico</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-[#F4F9EE] px-3.5 py-2 text-[11px] text-[#1E4611] font-semibold border-t border-[#A8D164] flex items-center justify-between gap-2">
-                        <span>💎 Relieve 3D fundido en PLA</span>
-                        <button type="button" onclick="shareLiveDesignPreviewOnly()" class="bg-white hover:bg-[#ECF7E1] text-[#1E4611] border border-[#76B82A] px-2.5 py-1 rounded-lg font-extrabold text-[10px] shadow-sm cursor-pointer">
-                            📤 Compartir este Diseño (Imagen)
-                        </button>
-                    </div>
-
-                    <div class="p-3 sm:p-4 bg-[#ECF7E1] border-t border-[#A8D164] flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                            <span id="displayPrice" class="text-xl sm:text-2xl font-black text-[#1E4611]">&#36;45 MXN</span>
-                            <span id="vendorProfitTag" class="hidden text-[10px] font-bold text-amber-800 bg-amber-200 px-1.5 py-0.5 rounded block"></span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center bg-white border border-gray-300 rounded-lg px-2 py-1.5">
-                                <span class="text-[11px] text-gray-500 mr-1">Cant:</span>
-                                <input id="qtyInput" type="number" min="1" value="1" class="w-10 text-center font-bold text-sm focus:outline-none" />
-                            </div>
-                            <button type="button" onclick="addKeychain()" class="bg-[#76B82A] hover:bg-[#629c21] text-white font-extrabold py-2.5 px-4 rounded-xl shadow text-xs sm:text-sm cursor-pointer">+ Agregar al Pedido</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PASOS -->
-                <div class="lg:col-span-7 space-y-4">
-                    <!-- PASO 1 -->
-                    <div class="bg-white/95 p-4 sm:p-5 rounded-2xl shadow-md border-2 border-[#A8D164]">
+                    <!-- PASO 1: NOMBRE -->
+                    <div class="bg-white/95 p-4 rounded-2xl shadow-md border-2 border-[#A8D164]">
                         <div class="flex items-center gap-2 mb-3">
                             <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">1</span>
-                            <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Elige el Estilo del Llavero</h2>
-                        </div>
-                        <div id="modelsGridContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
-
-                        <div id="charmSelectorBox" class="hidden mt-3 pt-3 border-t border-dashed border-gray-300">
-                            <label class="block text-xs font-bold text-[#1E4611] mb-2">Elige la figura del dije o símbolo final:</label>
-                            <div class="flex flex-wrap gap-2">
-                                <button type="button" onclick="selectCharm('❤️','Corazón')" class="charm-btn px-2.5 py-1.5 rounded-lg border-2 border-[#76B82A] bg-[#ECF7E1] text-xs font-bold cursor-pointer">❤️ Corazón</button>
-                                <button type="button" onclick="selectCharm('⭐','Estrella')" class="charm-btn px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer">⭐ Estrella</button>
-                                <button type="button" onclick="selectCharm('🐾','Huellita')" class="charm-btn px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer">🐾 Huellita</button>
-                                <button type="button" onclick="selectCharm('⚡','Rayo')" class="charm-btn px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer">⚡ Rayo</button>
-                                <button type="button" onclick="selectCharm('🌸','Flor')" class="charm-btn px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer">🌸 Flor</button>
-                                <button type="button" onclick="selectCharm('🦋','Mariposa')" class="charm-btn px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer">🦋 Mariposa</button>
-                                <button type="button" onclick="selectCharm('🍀','Trébol')" class="charm-btn px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer">🍀 Trébol</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PASO 2 -->
-                    <div class="bg-white/95 p-4 sm:p-5 rounded-2xl shadow-md border-2 border-[#A8D164]">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">2</span>
                             <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Escribe el Nombre</h2>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
                                 <label class="text-xs font-bold text-gray-600 block mb-1">Texto línea 1:</label>
-                                <input id="inputLine1" type="text" autocomplete="off" maxlength="14" value="" placeholder="Linea 1" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
+                                <input id="inputLine1" type="text" autocomplete="off" maxlength="14" value="" placeholder="Ej. Nicole" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
                             </div>
                             <div id="line2Container" class="hidden">
                                 <label class="text-xs font-bold text-gray-600 block mb-1">Texto línea 2:</label>
-                                <input id="inputLine2" type="text" autocomplete="off" maxlength="14" value="" placeholder="Linea 2" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
+                                <input id="inputLine2" type="text" autocomplete="off" maxlength="14" value="" placeholder="Ej. Elena" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
                             </div>
                         </div>
 
-                        <!-- CONTROLES DE AJUSTE PARA DOBLE LÍNEA (UNIDAS EN EL CENTRO) -->
+                        <!-- CONTROLES DOBLE LÍNEA -->
                         <div id="doubleLineControlsBox" class="hidden mt-3 pt-3 border-t border-dashed border-[#76B82A] bg-[#F4F9EE] p-3 rounded-xl space-y-2.5">
                             <div class="flex items-center justify-between gap-2">
-                                <span class="text-[11px] font-extrabold text-[#1E4611]">📐 Ajuste de Posición y Tamaño (Línea 2 respecto a Línea 1)</span>
-                                <button type="button" onclick="resetDoubleLineAdjustments()" class="text-[10px] font-bold text-[#76B82A] underline cursor-pointer">Restaurar centro</button>
+                                <span class="text-[11px] font-extrabold text-[#1E4611]">📐 Ajuste de Posición y Tamaño</span>
+                                <button type="button" onclick="resetDoubleLineAdjustments()" class="text-[10px] font-bold text-[#76B82A] underline cursor-pointer">Restaurar</button>
                             </div>
-                            <p class="text-[11px] text-amber-900 bg-amber-100 border border-amber-300 px-2.5 py-1 rounded-lg font-semibold">
-                                ⚠️ <b>Importante:</b> Ambas líneas van <b>unidas en el centro formando una sola pieza</b> (no son independientes).
-                            </p>
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
-                                <div>
-                                    <div class="flex justify-between font-bold text-gray-700 mb-0.5">
-                                        <span>↔️ Mover Horizontal:</span>
-                                        <span id="lblLine2X" class="text-[#1E4611]">0</span>
-                                    </div>
-                                    <input id="rangeLine2X" type="range" min="-80" max="80" value="0" oninput="updatePreview()" class="w-full accent-[#76B82A] cursor-pointer" />
+                                <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>↔️ Mover H:</span><span id="lblLine2X" class="text-[#1E4611]">0</span></div><input id="rangeLine2X" type="range" min="-80" max="80" value="0" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+                                <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>↕️ Unión V:</span><span id="lblLine2Y" class="text-[#1E4611]">Unidas</span></div><input id="rangeLine2Y" type="range" min="24" max="46" value="34" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+                                <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>🔠 Tamaño:</span><span id="lblLine2Scale" class="text-[#1E4611]">85%</span></div><input id="rangeLine2Scale" type="range" min="60" max="115" value="85" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREVISUALIZADOR SVG Y BOTÓN DE COMPRA -->
+                    <div class="bg-white rounded-2xl shadow-xl border-2 border-[#76B82A] overflow-hidden">
+                        <div class="bg-[#1E4611] text-white px-3.5 py-2 flex items-center justify-between">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-[#A8D164]">Tu Diseño en Vivo</span>
+                            <div class="flex items-center gap-1.5">
+                                <button type="button" onclick="previewCurrentDesignFullscreen()" class="text-[10px] bg-white/15 hover:bg-white/25 text-white px-2 py-0.5 rounded font-bold cursor-pointer">🔍 Ampliar</button>
+                                <span id="previewModelBadge" class="text-[10px] bg-[#76B82A] text-white px-2 py-0.5 rounded-full font-bold">Clásico (1 Línea)</span>
+                            </div>
+                        </div>
+
+                        <div onclick="previewCurrentDesignFullscreen()" class="preview-stage h-48 sm:h-64 flex items-center justify-center p-3 relative overflow-hidden cursor-zoom-in">
+                            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            <svg id="keychainSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" class="w-full h-full max-h-52 drop-shadow-[0_10px_8px_rgba(0,0,0,0.65)]">
+                                <g id="modularLayer" class="hidden"></g>
+                                <g id="classicTextLayer">
+                                    <g id="roundTagGroup" class="hidden"><circle id="roundTagBase" cx="240" cy="112" r="78" fill="#1D4ED8" stroke="#111" stroke-width="4" /><circle cx="176" cy="112" r="8" fill="#262f3f" /><text id="roundInitialText" x="245" y="150" text-anchor="middle" fill="#ffffff" opacity="0.28" font-size="115" font-weight="900">T</text></g>
+                                    <g id="metalRingGroup" transform="translate(48, 110)"><circle cx="-22" cy="0" r="18" fill="none" stroke="#d1d5db" stroke-width="5" /><ellipse cx="-6" cy="0" rx="8" ry="4" fill="none" stroke="#9ca3af" stroke-width="3.5" /></g>
+                                    <g id="leftHoleGroup" transform="translate(62, 110)"><circle id="leftEarBase" cx="0" cy="0" r="16" fill="#141414" /><circle cx="0" cy="0" r="6.5" fill="#262f3f" /></g>
+                                    <g id="rightHoleGroup" transform="translate(415, 110)" class="hidden"><circle id="rightEarBase" cx="0" cy="0" r="15" fill="#141414" /><circle cx="0" cy="0" r="6" fill="#262f3f" /></g>
+                                    <g id="charmGroup" transform="translate(452, 110)" class="hidden"><ellipse cx="-24" cy="0" rx="9" ry="4" fill="none" stroke="#d1d5db" stroke-width="3" /><text id="charmIconText" x="0" y="14" text-anchor="middle" font-size="42">❤️</text></g>
+                                    <g id="baseShadowLayer" transform="translate(0, 6)">
+                                        <text id="svgTextShadow1" x="250" y="124" text-anchor="middle" fill="#111" stroke="#111" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="56" style="font-family:'Pacifico',cursive;">Linea 1</text>
+                                        <text id="svgTextShadow2" x="250" y="158" text-anchor="middle" fill="#111" stroke="#111" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="48" class="hidden" style="font-family:'Pacifico',cursive;">Linea 2</text>
+                                    </g>
+                                    <g id="baseColorLayer">
+                                        <text id="svgTextBase1" x="250" y="124" text-anchor="middle" fill="#141414" stroke="#141414" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="56" style="font-family:'Pacifico',cursive;">Linea 1</text>
+                                        <text id="svgTextBase2" x="250" y="158" text-anchor="middle" fill="#141414" stroke="#141414" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" font-size="48" class="hidden" style="font-family:'Pacifico',cursive;">Linea 2</text>
+                                    </g>
+                                    <g id="topColorLayer">
+                                        <text id="svgTextTop1" x="250" y="124" text-anchor="middle" fill="#EF1D26" stroke="#EF1D26" stroke-width="2" stroke-linejoin="round" font-size="56" style="font-family:'Pacifico',cursive;">Linea 1</text>
+                                        <text id="svgTextTop2" x="250" y="158" text-anchor="middle" fill="#EF1D26" stroke="#EF1D26" stroke-width="1.5" stroke-linejoin="round" font-size="48" class="hidden" style="font-family:'Pacifico',cursive;">Linea 2</text>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] sm:text-[11px] text-gray-200 bg-black/50 px-2.5 py-1 rounded-lg">
+                                <span id="liveColorSummary">Base: Negro • Letra: Rojo</span>
+                                <span id="liveFontSummary" class="font-semibold text-[#A8D164]">Fuente: Pacifico</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-[#F4F9EE] px-3.5 py-2 text-[11px] text-[#1E4611] font-semibold border-t border-[#A8D164] flex items-center justify-between gap-2">
+                            <span>💎 Relieve 3D fundido en PLA</span>
+                            <button type="button" onclick="shareLiveDesignPreviewOnly()" class="bg-white hover:bg-[#ECF7E1] text-[#1E4611] border border-[#76B82A] px-2.5 py-1 rounded-lg font-extrabold text-[10px] shadow-sm cursor-pointer">📤 Compartir (Imagen)</button>
+                        </div>
+
+                        <div class="p-3 sm:p-4 bg-[#ECF7E1] border-t border-[#A8D164] flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <span id="displayPrice" class="text-xl sm:text-2xl font-black text-[#1E4611]">&#36;45 MXN</span>
+                                <span id="vendorProfitTag" class="hidden text-[10px] font-bold text-amber-800 bg-amber-200 px-1.5 py-0.5 rounded block"></span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center bg-white border border-gray-300 rounded-lg px-2 py-1.5">
+                                    <span class="text-[11px] text-gray-500 mr-1">Cant:</span>
+                                    <input id="qtyInput" type="number" min="1" value="1" class="w-8 text-center font-bold text-sm focus:outline-none" />
                                 </div>
-                                <div>
-                                    <div class="flex justify-between font-bold text-gray-700 mb-0.5">
-                                        <span>↕️ Unión Vertical:</span>
-                                        <span id="lblLine2Y" class="text-[#1E4611]">Unidas</span>
-                                    </div>
-                                    <input id="rangeLine2Y" type="range" min="24" max="46" value="34" oninput="updatePreview()" class="w-full accent-[#76B82A] cursor-pointer" />
-                                </div>
-                                <div>
-                                    <div class="flex justify-between font-bold text-gray-700 mb-0.5">
-                                        <span>🔠 Tamaño Línea 2:</span>
-                                        <span id="lblLine2Scale" class="text-[#1E4611]">85%</span>
-                                    </div>
-                                    <input id="rangeLine2Scale" type="range" min="60" max="115" value="85" oninput="updatePreview()" class="w-full accent-[#76B82A] cursor-pointer" />
+                                <button type="button" onclick="addKeychain()" class="bg-[#76B82A] hover:bg-[#629c21] text-white font-extrabold py-2.5 px-3 sm:px-4 rounded-xl shadow text-xs sm:text-sm cursor-pointer">+ Agregar al Pedido</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: ESTILO, COLORES, FUENTES (Colapsables) -->
+                <div class="lg:col-span-7 space-y-4">
+
+                    <!-- PASO 2: ESTILO (Ahora Visual) -->
+                    <div class="bg-white/95 rounded-2xl shadow-md border-2 border-[#A8D164] overflow-hidden">
+                        <button type="button" onclick="toggleStep('Estilo')" class="w-full px-4 py-3 bg-[#ECF7E1]/70 hover:bg-[#ECF7E1] flex items-center justify-between text-left cursor-pointer border-b border-[#A8D164]">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">2</span>
+                                <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Elige el Estilo del Llavero</h2>
+                            </div>
+                            <span id="icon-Estilo" class="w-7 h-7 rounded-lg bg-[#76B82A] text-white font-black flex items-center justify-center text-xs shrink-0 transition-transform">▼</span>
+                        </button>
+                        <div id="body-Estilo" class="p-3 sm:p-5">
+                            <div id="modelsGridContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
+
+                            <div id="charmSelectorBox" class="hidden mt-3 pt-3 border-t border-dashed border-gray-300">
+                                <label class="block text-xs font-bold text-[#1E4611] mb-2">Elige la figura del dije o símbolo final:</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <button type="button" onclick="selectCharm('❤️','Corazón')" class="px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer hover:border-[#76B82A]">❤️ Corazón</button>
+                                    <button type="button" onclick="selectCharm('⭐','Estrella')" class="px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer hover:border-[#76B82A]">⭐ Estrella</button>
+                                    <button type="button" onclick="selectCharm('🐾','Huellita')" class="px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer hover:border-[#76B82A]">🐾 Huellita</button>
+                                    <button type="button" onclick="selectCharm('⚡','Rayo')" class="px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer hover:border-[#76B82A]">⚡ Rayo</button>
+                                    <button type="button" onclick="selectCharm('🌸','Flor')" class="px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer hover:border-[#76B82A]">🌸 Flor</button>
+                                    <button type="button" onclick="selectCharm('🦋','Mariposa')" class="px-2.5 py-1.5 rounded-lg border border-gray-300 bg-white text-xs font-bold cursor-pointer hover:border-[#76B82A]">🦋 Mariposa</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- PASO 3 -->
-                    <div class="bg-white/95 p-4 sm:p-5 rounded-2xl shadow-md border-2 border-[#A8D164]">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <!-- PASO 3: COLORES -->
+                    <div class="bg-white/95 rounded-2xl shadow-md border-2 border-[#A8D164] overflow-hidden">
+                        <button type="button" onclick="toggleStep('Colores')" class="w-full px-4 py-3 bg-[#ECF7E1]/70 hover:bg-[#ECF7E1] flex items-center justify-between text-left cursor-pointer border-b border-[#A8D164]">
                             <div class="flex items-center gap-2">
                                 <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">3</span>
                                 <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Elige los Colores</h2>
                             </div>
-                            <div class="flex items-center gap-2">
+                            <span id="icon-Colores" class="w-7 h-7 rounded-lg bg-[#76B82A] text-white font-black flex items-center justify-center text-xs shrink-0 transition-transform">▼</span>
+                        </button>
+                        <div id="body-Colores" class="p-4 sm:p-5 hidden">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                                 <button type="button" id="btnMultiColorToggle" onclick="toggleMultiColorBase()" class="hidden text-[11px] font-extrabold px-2.5 py-1 rounded-xl border-2 border-purple-500 bg-purple-50 text-purple-900 cursor-pointer shadow-sm">
                                     🌈 Alternar Eslabones Multicolor: OFF
                                 </button>
                                 <span class="text-[10px] bg-[#ECF7E1] text-[#1E4611] px-2 py-0.5 rounded font-bold border border-[#76B82A]">Colores en Stock</span>
                             </div>
-                        </div>
-                        <div class="space-y-4">
-                            <div id="baseColorStepBox">
-                                <label class="text-xs font-bold text-gray-600 block mb-2">Color 1: Base / Eslabón (<span id="baseColorName" class="text-[#1E4611]">Negro</span>)</label>
-                                <div id="baseColorGrid" class="flex flex-wrap gap-2.5"></div>
-                            </div>
-                            <div>
-                                <label class="text-xs font-bold text-gray-600 block mb-2"><span id="topColorStepLabel">Color 2: Letra en Relieve</span> (<span id="topColorName" class="text-[#1E4611]">Rojo</span>)</label>
-                                <div id="topColorGrid" class="flex flex-wrap gap-2.5"></div>
+                            <div class="space-y-4">
+                                <div id="baseColorStepBox">
+                                    <label class="text-xs font-bold text-gray-600 block mb-2">Color 1: Base / Eslabón (<span id="baseColorName" class="text-[#1E4611]">Negro</span>)</label>
+                                    <div id="baseColorGrid" class="flex flex-wrap gap-2.5"></div>
+                                </div>
+                                <div>
+                                    <label class="text-xs font-bold text-gray-600 block mb-2"><span id="topColorStepLabel">Color 2: Letra en Relieve</span> (<span id="topColorName" class="text-[#1E4611]">Rojo</span>)</label>
+                                    <div id="topColorGrid" class="flex flex-wrap gap-2.5"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- PASO 4 -->
-                    <div class="bg-white/95 p-4 sm:p-5 rounded-2xl shadow-md border-2 border-[#A8D164]">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                            <div class="flex items-center gap-2">
+                    <!-- PASO 4: FUENTES (Categorizadas) -->
+                    <div class="bg-white/95 rounded-2xl shadow-md border-2 border-[#A8D164] overflow-hidden">
+                        <button type="button" onclick="toggleStep('Fuentes')" class="w-full px-4 py-3 bg-[#ECF7E1]/70 hover:bg-[#ECF7E1] flex items-center justify-between text-left cursor-pointer border-b border-[#A8D164]">
+                            <div class="flex flex-wrap items-center gap-2">
                                 <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">4</span>
                                 <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Elige el Tipo de Letra</h2>
                             </div>
-                            <span id="singleColorFontWarning" class="hidden text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-0.5 rounded-lg">
-                                ⚠️ Modelo Sin Borde: Solo letras cursivas/unidas habilitadas
-                            </span>
-                            <span id="modularFontNotice" class="hidden text-[11px] font-bold bg-blue-50 text-blue-900 border border-blue-300 px-2.5 py-0.5 rounded-lg">
-                                🔗 Modelo por Eslabones: Se recomiendan letras de bloque/molde (Bungee, Anton, Nunito, Fredoka)
-                            </span>
-                        </div>
+                            <span id="icon-Fuentes" class="w-7 h-7 rounded-lg bg-[#76B82A] text-white font-black flex items-center justify-center text-xs shrink-0 transition-transform">▼</span>
+                        </button>
+                        <div id="body-Fuentes" class="p-4 sm:p-5 hidden">
+                            <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <span id="singleColorFontWarning" class="hidden text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-300 px-2.5 py-0.5 rounded-lg">
+                                    ⚠️ Modelo Sin Borde: Solo letras cursivas/unidas habilitadas
+                                </span>
+                                <span id="modularFontNotice" class="hidden text-[11px] font-bold bg-blue-50 text-blue-900 border border-blue-300 px-2.5 py-0.5 rounded-lg">
+                                    🔗 Modelo por Eslabones: Se recomiendan letras de bloque/molde
+                                </span>
+                            </div>
 
-                        <p class="text-[11px] text-gray-500 mb-2 font-semibold">⭐ Fuentes más pedidas:</p>
-                        <div id="fontGridPrimary" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+                            <!-- CATEGORÍA 1 -->
+                            <div class="mb-4">
+                                <h4 class="text-[11px] font-black text-[#1E4611] mb-2 uppercase border-b border-[#A8D164] pb-1">✍️ Cursivas y Elegantes (Unidas)</h4>
+                                <div id="fontGridCursivas" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+                            </div>
 
-                        <div class="mt-3 pt-3 border-t border-gray-200">
-                            <button type="button" onclick="toggleMoreFonts()" id="btnMoreFonts" class="w-full py-2 px-3 rounded-xl border-2 border-dashed border-[#76B82A] bg-[#F4F9EE] hover:bg-[#ECF7E1] text-xs font-extrabold text-[#1E4611] flex items-center justify-center gap-1.5 cursor-pointer">
-                                <span>🔤 Ver más muestras del catálogo de Google Fonts (12 opciones extra)</span>
-                                <span id="moreFontsArrow">▼</span>
-                            </button>
-                            <div id="fontGridExtra" class="hidden mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+                            <!-- CATEGORÍA 2 -->
+                            <div class="mb-4">
+                                <h4 class="text-[11px] font-black text-[#1E4611] mb-2 uppercase border-b border-[#A8D164] pb-1">🔠 Molde y Bloque (Separadas)</h4>
+                                <div id="fontGridMolde" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+                            </div>
+
+                            <!-- CATEGORÍA 3 -->
+                            <div>
+                                <h4 class="text-[11px] font-black text-[#1E4611] mb-2 uppercase border-b border-[#A8D164] pb-1">🎨 Divertidas y Urbanas</h4>
+                                <div id="fontGridUrbanas" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1541,56 +1461,104 @@
               }
             }
 
-            function renderModels() {
-              const g = document.getElementById('modelsGridContainer');
-              if (!g) return;
-              const isV = state.role === 'vendor';
-              g.innerHTML = '';
-              get3dModels().forEach(m => {
-                const act = state.model === m.id;
-                const p = isV ? m.vendorPrice : m.publicPrice;
-                const b = document.createElement('button');
-                b.type = 'button';
-                b.className = 'p-3 rounded-xl border-2 text-left transition cursor-pointer flex items-center gap-2.5 ' + (act ? 'border-[#76B82A] bg-[#ECF7E1]/60 shadow-sm' : 'border-gray-200 bg-white hover:border-[#A8D164]');
-                b.onclick = () => selectModel(m.id);
-                const thumbHtml = m.sampleImg ? '<img src="' + m.sampleImg + '" class="w-11 h-11 rounded-lg object-cover border border-gray-300 shrink-0"/>' : '';
-                b.innerHTML = thumbHtml + '<div class="flex-1"><div class="flex justify-between items-center mb-0.5"><span class="font-bold text-xs sm:text-sm text-[#1E4611]">' + m.title + '</span><span class="text-[11px] font-extrabold ' + (act ? 'bg-[#76B82A] text-white' : 'bg-gray-100 text-gray-800') + ' px-1.5 py-0.5 rounded">' + CUR + p + '</span></div><p class="text-[11px] text-gray-600">' + m.desc + '</p></div>';
-                g.appendChild(b);
-              });
-            }
+// ____________________________________________________
+// Bloque 4 : Toggle de Acordeones, Grid Visual y Selectores
+// ____________________________________________________
+function toggleStep(stepId, forceOpen = false) {
+    const body = document.getElementById('body-' + stepId);
+    const icon = document.getElementById('icon-' + stepId);
+    if (!body) return;
+    if (forceOpen) {
+        body.classList.remove('hidden');
+        if (icon) icon.textContent = '▲';
+    } else {
+        body.classList.toggle('hidden');
+        if (icon) icon.textContent = body.classList.contains('hidden') ? '▼' : '▲';
+    }
+}
 
-            function selectModel(id) {
-              state.model = id;
-              const m = getCurrentModelObj();
-              const geom = resolveModelGeometry(m);
-              const isMod = isModularGeometry(geom);
-              const isSingleCol = (geom === 'single_color' || !!m.singleColor);
+function renderModels() {
+    const g = document.getElementById('modelsGridContainer');
+    if (!g) return;
+    const isV = state.role === 'vendor';
+    g.innerHTML = '';
+    get3dModels().forEach(m => {
+        const act = state.model === m.id;
+        const p = isV ? m.vendorPrice : m.publicPrice;
+        const geom = resolveModelGeometry(m);
 
-              document.getElementById('charmSelectorBox').classList.toggle('hidden', !(geom === 'charm' || geom === 'beads'));
-              document.getElementById('line2Container').classList.toggle('hidden', geom !== 'double_line');
-              const dlBox = document.getElementById('doubleLineControlsBox');
-              if (dlBox) dlBox.classList.toggle('hidden', geom !== 'double_line');
+        let visualHtml = '';
+        if (geom === 'chain_blocks') {
+            visualHtml = '<div class="h-11 flex items-center justify-center gap-0.5"><span class="px-1 py-0.5 bg-[#76B82A] text-white font-black text-[10px] rounded">A</span><span class="px-1 py-0.5 bg-[#76B82A] text-white font-black text-[10px] rounded">L</span><span class="px-1 py-0.5 bg-[#76B82A] text-white font-black text-[10px] rounded">B</span></div>';
+        } else if (geom === 'clicker') {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><span class="px-1.5 py-0.5 bg-[#F4A6C1] rounded flex gap-0.5"><b class="bg-white text-[#F4A6C1] px-1 rounded text-[10px]">A</b><b class="bg-white text-[#F4A6C1] px-1 rounded text-[10px]">N</b></span></div>';
+        } else if (geom === 'puzzle') {
+            visualHtml = '<div class="h-11 flex items-center justify-center gap-0.5"><span class="px-1 py-0.5 bg-red-500 text-white font-black text-[10px] rounded-full">M</span><span class="px-1 py-0.5 bg-amber-400 text-white font-black text-[10px] rounded-full">a</span><span class="px-1 py-0.5 bg-blue-500 text-white font-black text-[10px] rounded-full">r</span></div>';
+        } else if (geom === 'beads') {
+            visualHtml = '<div class="h-11 flex items-center justify-center gap-0.5"><span class="w-4 h-4 rounded-full bg-orange-500 text-white font-black text-[9px] flex items-center justify-center">S</span><span class="w-4 h-4 rounded-full bg-orange-500 text-white font-black text-[9px] flex items-center justify-center">A</span><span class="w-4 h-4 rounded-full bg-orange-500 text-white text-[9px] flex items-center justify-center">🐾</span></div>';
+        } else if (geom === 'charm') {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><span style="font-family:\'Nunito\';font-weight:900;color:#F4A6C1;-webkit-text-stroke:3px #22B8CF;paint-order:stroke fill;" class="text-sm">Ana ❤️</span></div>';
+        } else if (geom === 'single_color') {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><span style="font-family:\'Chewy\';color:#F9FAFB;" class="text-lg drop-shadow">Fer</span></div>';
+        } else if (geom === 'double_line') {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><span style="font-family:\'Pacifico\';color:#fff;-webkit-text-stroke:2.5px #141414;paint-order:stroke fill;" class="text-xs leading-none text-center">Maria<br>Elena</span></div>';
+        } else if (geom === 'round_tag') {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><div class="w-8 h-8 rounded-full bg-[#1D4ED8] flex items-center justify-center border-2 border-gray-900"><span class="text-white font-black text-xs opacity-60">T</span></div></div>';
+        } else if (geom === 'thin_border') {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><span style="font-family:\'Pacifico\';color:#fff;-webkit-text-stroke:1.5px #141414;paint-order:stroke fill;" class="text-base">Mía</span></div>';
+        } else {
+            visualHtml = '<div class="h-11 flex items-center justify-center"><span style="font-family:\'Pacifico\';color:#fff;-webkit-text-stroke:3px #F4A6C1;paint-order:stroke fill;" class="text-base">Nicole</span></div>';
+        }
 
-              const multiBtn = document.getElementById('btnMultiColorToggle');
-              if (multiBtn) multiBtn.classList.toggle('hidden', !isMod || geom === 'photo_card');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'bg-gray-800 p-2 rounded-xl border-2 hover:border-[#76B82A] text-left cursor-pointer flex flex-col justify-between transition-transform ' + (act ? 'border-[#76B82A] ring-2 ring-[#76B82A] scale-[1.02]' : 'border-gray-300');
+        b.onclick = () => {
+            selectModel(m.id);
+            toggleStep('Estilo', false); // Cierra este
+            toggleStep('Colores', true); // Abre el siguiente
+        };
 
-              document.getElementById('previewModelBadge').textContent = m.title;
-              document.getElementById('baseColorStepBox').classList.toggle('hidden', isSingleCol);
-              document.getElementById('singleColorFontWarning').classList.toggle('hidden', !isSingleCol);
+        const shortTitle = m.title.split('(')[0].trim().substring(0, 15);
+        b.innerHTML = visualHtml + '<div class="text-[9px] font-bold text-white flex justify-between mt-1 pt-1 border-t border-gray-700"><span>' + shortTitle + '</span><span class="text-[#A8D164]">' + CUR + p + '</span></div>';
+        g.appendChild(b);
+    });
+}
 
-              const modNotice = document.getElementById('modularFontNotice');
-              if (modNotice) modNotice.classList.toggle('hidden', !isMod);
+function selectModel(id) {
+    state.model = id;
+    const m = getCurrentModelObj();
+    const geom = resolveModelGeometry(m);
+    const isMod = isModularGeometry(geom);
+    const isSingleCol = (geom === 'single_color' || !!m.singleColor);
 
-              if (isSingleCol && !state.font.connected) {
-                state.font = FONTS_CATALOG.find(f => f.connected) || FONTS_CATALOG[0];
-              } else if (isMod && state.font.connected) {
-                // En eslabones articulados o teclas, sugerir automáticamente fuente de bloque como Bungee o Nunito
-                state.font = FONTS_CATALOG.find(f => f.id === 'Bungee') || FONTS_CATALOG.find(f => !f.connected) || state.font;
-              }
+    document.getElementById('charmSelectorBox').classList.toggle('hidden', !(geom === 'charm' || geom === 'beads'));
+    document.getElementById('line2Container').classList.toggle('hidden', geom !== 'double_line');
+    const dlBox = document.getElementById('doubleLineControlsBox');
+    if (dlBox) dlBox.classList.toggle('hidden', geom !== 'double_line');
 
-              renderModels();
-              updatePreview();
-            }
+    const multiBtn = document.getElementById('btnMultiColorToggle');
+    if (multiBtn) multiBtn.classList.toggle('hidden', !isMod || geom === 'photo_card');
+
+    document.getElementById('previewModelBadge').textContent = m.title;
+    document.getElementById('baseColorStepBox').classList.toggle('hidden', isSingleCol);
+    document.getElementById('singleColorFontWarning').classList.toggle('hidden', !isSingleCol);
+
+    const modNotice = document.getElementById('modularFontNotice');
+    if (modNotice) modNotice.classList.toggle('hidden', !isMod);
+
+    if (isSingleCol && !state.font.connected) {
+        state.font = FONTS_CATALOG.find(f => f.connected) || FONTS_CATALOG[0];
+    } else if (isMod && state.font.connected) {
+        state.font = FONTS_CATALOG.find(f => f.id === 'Bungee') || FONTS_CATALOG.find(f => !f.connected) || state.font;
+    }
+
+    renderModels();
+    updatePreview();
+}
+// ____________________________________________________
+// Fin Bloque 4
+// ____________________________________________________
 
             function resetDoubleLineAdjustments() {
               if (document.getElementById('rangeLine2X')) document.getElementById('rangeLine2X').value = 0;
@@ -1646,22 +1614,31 @@
               return b;
             }
 
-            function renderFonts() {
-              const fgPrimary = document.getElementById('fontGridPrimary');
-              const fgExtra = document.getElementById('fontGridExtra');
-              if (!fgPrimary || !fgExtra) return;
-              const rawInput = document.getElementById('inputLine1').value.trim();
-              const txt = rawInput || 'Linea 1';
-              const m = getCurrentModelObj();
-              const geom = resolveModelGeometry(m);
-              const requireConnected = (geom === 'single_color' || !!m.singleColor);
-              fgPrimary.innerHTML = ''; fgExtra.innerHTML = '';
-              FONTS_CATALOG.forEach(f => {
-                const btn = createFontButton(f, txt, requireConnected);
-                if (f.primary) fgPrimary.appendChild(btn);
-                else fgExtra.appendChild(btn);
-              });
-            }
+function renderFonts() {
+    const c1 = document.getElementById('fontGridCursivas');
+    const c2 = document.getElementById('fontGridMolde');
+    const c3 = document.getElementById('fontGridUrbanas');
+    if (!c1 || !c2 || !c3) return;
+
+    const rawInput = document.getElementById('inputLine1').value.trim();
+    const txt = rawInput || 'Linea 1';
+    const m = getCurrentModelObj();
+    const geom = resolveModelGeometry(m);
+    const requireConnected = (geom === 'single_color' || !!m.singleColor);
+
+    c1.innerHTML = ''; c2.innerHTML = ''; c3.innerHTML = '';
+
+    FONTS_CATALOG.forEach(f => {
+        const btn = createFontButton(f, txt, requireConnected);
+        if (['Pacifico', 'Lobster', 'Style Script', 'Birthstone', 'Birthstone Bounce', 'Pattaya', 'Dancing Script', 'Great Vibes', 'Sacramento'].includes(f.id)) {
+            c1.appendChild(btn);
+        } else if (['Bungee', 'Nunito', 'Anton', 'Poppins', 'Mochiy Pop One', 'Fredoka', 'Sansita'].includes(f.id)) {
+            c2.appendChild(btn);
+        } else {
+            c3.appendChild(btn);
+        }
+    });
+}
 
             function updatePreview() {
               const raw1 = document.getElementById('inputLine1').value.trim();
