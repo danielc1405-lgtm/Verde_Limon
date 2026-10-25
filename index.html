@@ -1515,8 +1515,6 @@ function renderModels() {
         b.className = 'bg-gray-800 p-2 rounded-xl border-2 hover:border-[#76B82A] text-left cursor-pointer flex flex-col justify-between transition-transform ' + (act ? 'border-[#76B82A] ring-2 ring-[#76B82A] scale-[1.02]' : 'border-gray-300');
         b.onclick = () => {
             selectModel(m.id);
-            toggleStep('Estilo', false); // Cierra este
-            toggleStep('Colores', true); // Abre el siguiente
         };
 
         const shortTitle = m.title.split('(')[0].trim().substring(0, 15);
