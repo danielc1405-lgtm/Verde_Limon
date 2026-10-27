@@ -102,32 +102,40 @@
                 <div class="lg:col-span-5 space-y-4 sticky top-16 z-30">
 
                     <!-- PASO 1: NOMBRE -->
-                    <div class="bg-white/95 p-4 rounded-2xl shadow-md border-2 border-[#A8D164]">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">1</span>
-                            <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Escribe el Nombre</h2>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div>
-                                <label class="text-xs font-bold text-gray-600 block mb-1">Texto línea 1:</label>
-                                <input id="inputLine1" type="text" autocomplete="off" maxlength="14" value="" placeholder="Ej. Nicole" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
+                    <div class="bg-white/95 rounded-2xl shadow-md border-2 border-[#A8D164] overflow-hidden">
+                        <button type="button" onclick="toggleStep('Nombre')" class="w-full px-4 py-3 bg-[#ECF7E1]/70 hover:bg-[#ECF7E1] flex items-center justify-between text-left cursor-pointer border-b border-[#A8D164]">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-[#1E4611] text-white text-xs font-bold flex items-center justify-center">1</span>
+                                <h2 class="font-extrabold text-[#1E4611] text-sm sm:text-base">Escribe el Nombre</h2>
                             </div>
-                            <div id="line2Container" class="hidden">
-                                <label class="text-xs font-bold text-gray-600 block mb-1">Texto línea 2:</label>
-                                <input id="inputLine2" type="text" autocomplete="off" maxlength="14" value="" placeholder="Ej. Elena" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
-                            </div>
-                        </div>
+                            <span id="icon-Nombre" class="w-7 h-7 rounded-lg bg-[#76B82A] text-white font-black flex items-center justify-center text-xs shrink-0 transition-transform">▲</span>
+                        </button>
 
-                        <!-- CONTROLES DOBLE LÍNEA -->
-                        <div id="doubleLineControlsBox" class="hidden mt-3 pt-3 border-t border-dashed border-[#76B82A] bg-[#F4F9EE] p-3 rounded-xl space-y-2.5">
-                            <div class="flex items-center justify-between gap-2">
-                                <span class="text-[11px] font-extrabold text-[#1E4611]">📐 Ajuste de Posición y Tamaño</span>
-                                <button type="button" onclick="resetDoubleLineAdjustments()" class="text-[10px] font-bold text-[#76B82A] underline cursor-pointer">Restaurar</button>
+                        <div id="body-Nombre" class="p-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="text-xs font-bold text-gray-600 block mb-1">Texto línea 1:</label>
+                                    <input id="inputLine1" type="text" autocomplete="off" maxlength="14" value="" placeholder="Ej. Nicole" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
+                                </div>
+                                <div id="line2Container" class="hidden">
+                                    <label class="text-xs font-bold text-gray-600 block mb-1">Texto línea 2:</label>
+                                    <input id="inputLine2" type="text" autocomplete="off" maxlength="14" value="" placeholder="Ej. Elena" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border-2 border-gray-300 focus:border-[#76B82A] focus:outline-none font-bold text-gray-800 bg-white" />
+                                </div>
                             </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
-                                <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>↔️ Mover H:</span><span id="lblLine2X" class="text-[#1E4611]">0</span></div><input id="rangeLine2X" type="range" min="-80" max="80" value="0" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
-                                <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>↕️ Unión V:</span><span id="lblLine2Y" class="text-[#1E4611]">Unidas</span></div><input id="rangeLine2Y" type="range" min="24" max="46" value="34" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
-                                <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>🔠 Tamaño:</span><span id="lblLine2Scale" class="text-[#1E4611]">85%</span></div><input id="rangeLine2Scale" type="range" min="60" max="115" value="85" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+
+                            <!-- CONTROLES DOBLE LÍNEA -->
+                            <div id="doubleLineControlsBox" class="hidden mt-3 pt-3 border-t border-dashed border-[#76B82A] bg-[#F4F9EE] p-3 rounded-xl space-y-2.5">
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="text-[11px] font-extrabold text-[#1E4611]">📐 Ajuste de Posición y Tamaño</span>
+                                    <button type="button" onclick="resetDoubleLineAdjustments()" class="text-[10px] font-bold text-[#76B82A] underline cursor-pointer">Restaurar</button>
+                                </div>
+
+                                <!-- EL SECRETO PARA CERRAR EL TECLADO ESTÁ EN LA SIGUIENTE LÍNEA (ontouchstart) -->
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]" ontouchstart="document.activeElement.blur()" onmousedown="document.activeElement.blur()">
+                                    <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>↔️ Mover H:</span><span id="lblLine2X" class="text-[#1E4611]">0</span></div><input id="rangeLine2X" type="range" min="-80" max="80" value="0" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+                                    <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>↕️ Unión V:</span><span id="lblLine2Y" class="text-[#1E4611]">Unidas</span></div><input id="rangeLine2Y" type="range" min="24" max="46" value="34" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+                                    <div><div class="flex justify-between font-bold text-gray-700 mb-0.5"><span>🔠 Tamaño:</span><span id="lblLine2Scale" class="text-[#1E4611]">85%</span></div><input id="rangeLine2Scale" type="range" min="60" max="115" value="85" oninput="updatePreview()" class="w-full accent-[#76B82A]" /></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -238,20 +246,24 @@
                                 </button>
                                 <span class="text-[10px] bg-[#ECF7E1] text-[#1E4611] px-2 py-0.5 rounded font-bold border border-[#76B82A]">Colores en Stock</span>
                             </div>
-                            <div class="space-y-4">
-                                <div id="baseColorStepBox">
-                                    <label class="text-xs font-bold text-gray-600 block mb-2">Color 1: Base / Eslabón (<span id="baseColorName" class="text-[#1E4611]">Negro</span>)</label>
-                                    <div id="baseColorGrid" class="flex flex-wrap gap-2.5"></div>
-                                </div>
-                                <div>
-                                    <label class="text-xs font-bold text-gray-600 block mb-2"><span id="topColorStepLabel">Color 2: Letra en Relieve</span> (<span id="topColorName" class="text-[#1E4611]">Rojo</span>)</label>
-                                    <div id="topColorGrid" class="flex flex-wrap gap-2.5"></div>
-                                </div>
+
+                            <!-- SELECTORES ESTILO "BASE / LETRA" -->
+                            <div class="flex items-center gap-2 mb-4 bg-[#F4F9EE] p-2 rounded-xl border border-[#A8D164]">
+                                <span class="text-[11px] font-bold text-gray-600 ml-1">Editando:</span>
+                                <button type="button" id="btnColorTargetBase" onclick="setColorTarget('base')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-[#1E4611] bg-white text-xs font-black shadow-sm transition-all scale-105">
+                                    Base <span id="indicatorBase" class="w-3 h-3 rounded-full border border-gray-400 inline-block bg-[#141414]"></span>
+                                </button>
+                                <button type="button" id="btnColorTargetTop" onclick="setColorTarget('top')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-transparent text-gray-500 bg-gray-50 text-xs font-bold transition-all hover:bg-gray-100 cursor-pointer">
+                                    Letra <span id="indicatorTop" class="w-3 h-3 rounded-full border border-gray-400 inline-block bg-[#EF1D26]"></span>
+                                </button>
                             </div>
+
+                            <!-- CUADRÍCULA ÚNICA DE COLORES -->
+                            <div id="singleColorGrid" class="flex flex-wrap gap-2.5"></div>
                         </div>
                     </div>
 
-                    <!-- PASO 4: FUENTES (Categorizadas) -->
+                    <!-- PASO 4: FUENTES -->
                     <div class="bg-white/95 rounded-2xl shadow-md border-2 border-[#A8D164] overflow-hidden">
                         <button type="button" onclick="toggleStep('Fuentes')" class="w-full px-4 py-3 bg-[#ECF7E1]/70 hover:bg-[#ECF7E1] flex items-center justify-between text-left cursor-pointer border-b border-[#A8D164]">
                             <div class="flex flex-wrap items-center gap-2">
@@ -268,6 +280,13 @@
                                 <span id="modularFontNotice" class="hidden text-[11px] font-bold bg-blue-50 text-blue-900 border border-blue-300 px-2.5 py-0.5 rounded-lg">
                                     🔗 Modelo por Eslabones: Se recomiendan letras de bloque/molde
                                 </span>
+                            </div>
+
+                            <!-- SELECTOR DE LÍNEA PARA FUENTE (Se muestra solo en Doble Línea) -->
+                            <div id="fontTargetSelector" class="hidden flex items-center gap-2 mb-4 bg-[#F4F9EE] p-2 rounded-xl border border-[#A8D164]">
+                                <span class="text-[11px] font-bold text-gray-600 ml-1">Cambiar fuente de:</span>
+                                <button type="button" id="btnFontTarget1" onclick="setFontTarget('line1')" class="px-3 py-1.5 rounded-lg border-2 border-[#1E4611] bg-white text-xs font-black shadow-sm transition-all scale-105 cursor-pointer">Línea 1</button>
+                                <button type="button" id="btnFontTarget2" onclick="setFontTarget('line2')" class="px-3 py-1.5 rounded-lg border-2 border-transparent text-gray-500 bg-gray-50 text-xs font-bold transition-all hover:bg-gray-100 cursor-pointer">Línea 2</button>
                             </div>
 
                             <!-- CATEGORÍA 1 -->
@@ -834,21 +853,24 @@
                     let savedRoleSession = localStorage.getItem('vl_saved_role_v13') || 'public';
 
                     let state = {
-                      role: savedRoleSession,
-                      currentTab: '3d',
-                      adminModule: 'orders',
-                      model: 'simple',
-                      charmEmoji: '❤️',
-                      charmName: 'Corazón',
-                      baseColor: filamentCatalog[0],
-                      topColor: filamentCatalog[2],
-                      multiColorBase: false,
-                      font: FONTS_CATALOG[0],
-                      moreFontsOpen: false,
-                      adminFilter: 'ALL',
-                      cart: [],
-                      orders: JSON.parse(localStorage.getItem('vl_ord_v13')) || [],
-                      myClientOrderIds: JSON.parse(localStorage.getItem('vl_my_client_orders_v13')) || []
+                        role: savedRoleSession,
+                        currentTab: '3d',
+                        adminModule: 'orders',
+                        model: 'simple',
+                        charmEmoji: '❤️',
+                        charmName: 'Corazón',
+                        baseColor: filamentCatalog[0],
+                        topColor: filamentCatalog[2],
+                        multiColorBase: false,
+                        colorTarget: 'base', // NUEVO: Controla qué color editamos
+                        fontTarget: 'line1', // NUEVO: Controla qué línea editamos
+                        font: FONTS_CATALOG[0],
+                        font2: FONTS_CATALOG.find(f => f.id === 'Lobster') || FONTS_CATALOG[2], // NUEVO: Fuente Línea 2
+                        moreFontsOpen: false,
+                        adminFilter: 'ALL',
+                        cart: [],
+                        orders: JSON.parse(localStorage.getItem('vl_ord_v13')) || [],
+                        myClientOrderIds: JSON.parse(localStorage.getItem('vl_my_client_orders_v13')) || []
                     };
 
                     // DETECTOR INTELIGENTE DE GEOMETRÍA (Detecta automáticamente modelos nuevos o ya creados por nombre/ID)
@@ -1604,221 +1626,310 @@
                         updatePreview();
                     }
 
+                    // --- NUEVAS FUNCIONES DE CONTROL DE PESTAÑAS (COLOR / FUENTE) ---
+                    function setColorTarget(tgt) {
+                        state.colorTarget = tgt;
+                        const bBase = document.getElementById('btnColorTargetBase');
+                        const bTop = document.getElementById('btnColorTargetTop');
+                        if (tgt === 'base') {
+                            bBase.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-[#1E4611] bg-white text-xs font-black shadow-sm transition-all scale-105';
+                            bTop.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-transparent text-gray-500 bg-gray-50 text-xs font-bold transition-all hover:bg-gray-100 cursor-pointer';
+                        } else {
+                            bTop.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-[#76B82A] bg-white text-xs font-black shadow-sm transition-all scale-105';
+                            bBase.className = 'flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-transparent text-gray-500 bg-gray-50 text-xs font-bold transition-all hover:bg-gray-100 cursor-pointer';
+                        }
+                        renderColors();
+                    }
+
+                    function setFontTarget(tgt) {
+                        state.fontTarget = tgt;
+                        const b1 = document.getElementById('btnFontTarget1');
+                        const b2 = document.getElementById('btnFontTarget2');
+                        if (tgt === 'line1') {
+                            b1.className = 'px-3 py-1.5 rounded-lg border-2 border-[#1E4611] bg-white text-xs font-black shadow-sm transition-all scale-105 cursor-pointer';
+                            b2.className = 'px-3 py-1.5 rounded-lg border-2 border-transparent text-gray-500 bg-gray-50 text-xs font-bold transition-all hover:bg-gray-100 cursor-pointer';
+                        } else {
+                            b2.className = 'px-3 py-1.5 rounded-lg border-2 border-[#76B82A] bg-white text-xs font-black shadow-sm transition-all scale-105 cursor-pointer';
+                            b1.className = 'px-3 py-1.5 rounded-lg border-2 border-transparent text-gray-500 bg-gray-50 text-xs font-bold transition-all hover:bg-gray-100 cursor-pointer';
+                        }
+                        renderFonts();
+                    }
+
+                    // --- ACTUALIZACIÓN DE RENDER COLORES ---
                     function renderColors() {
-                        const baseGrid = document.getElementById('baseColorGrid');
-                        const topGrid = document.getElementById('topColorGrid');
-                        if (!baseGrid || !topGrid) return;
+                        const grid = document.getElementById('singleColorGrid');
+                        if (!grid) return;
+                        grid.innerHTML = '';
+
+                        // Actualizar colores de las bolitas indicadoras
+                        if (document.getElementById('indicatorBase')) document.getElementById('indicatorBase').style.backgroundColor = state.baseColor.hex;
+                        if (document.getElementById('indicatorTop')) document.getElementById('indicatorTop').style.backgroundColor = state.topColor.hex;
 
                         const activePalette = filamentCatalog.filter(c => c.active);
-
-                        // Limpiar ambas cuadrículas antes de inyectar
-                        baseGrid.innerHTML = '';
-                        topGrid.innerHTML = '';
-
                         activePalette.forEach(col => {
-                            // --- Generar botones para la BASE ---
-                            const isBaseSelected = (state.baseColor.name === col.name);
-                            const btnBase = document.createElement('button');
-                            btnBase.type = 'button';
-                            btnBase.className = 'w-10 h-10 rounded-full border-2 cursor-pointer transition-transform ' + (isBaseSelected ? 'scale-125 ring-2 ring-offset-2 ring-[#1E4611] border-white shadow-md' : 'border-gray-300 hover:scale-110');
-                            btnBase.style.backgroundColor = col.hex;
-                            btnBase.title = col.name;
-                            btnBase.onclick = () => {
-                                state.baseColor = col;
-                                state.multiColorBase = false;
-                                renderColors();
-                                updatePreview();
-                            };
-                            baseGrid.appendChild(btnBase);
+                            const isSelected = (state.colorTarget === 'base' && state.baseColor.name === col.name) ||
+                                (state.colorTarget === 'top' && state.topColor.name === col.name);
 
-                            // --- Generar botones para la LETRA ---
-                            const isTopSelected = (state.topColor.name === col.name);
-                            const btnTop = document.createElement('button');
-                            btnTop.type = 'button';
-                            btnTop.className = 'w-10 h-10 rounded-full border-2 cursor-pointer transition-transform ' + (isTopSelected ? 'scale-125 ring-2 ring-offset-2 ring-[#76B82A] border-white shadow-md' : 'border-gray-300 hover:scale-110');
-                            btnTop.style.backgroundColor = col.hex;
-                            btnTop.title = col.name;
-                            btnTop.onclick = () => {
-                                state.topColor = col;
+                            const ringColor = state.colorTarget === 'base' ? 'ring-[#1E4611]' : 'ring-[#76B82A]';
+
+                            const btn = document.createElement('button');
+                            btn.type = 'button';
+                            btn.className = 'w-10 h-10 rounded-full border-2 cursor-pointer transition-transform ' + (isSelected ? 'scale-125 ring-2 ring-offset-2 ' + ringColor + ' border-white shadow-md' : 'border-gray-300 hover:scale-110');
+                            btn.style.backgroundColor = col.hex;
+                            btn.title = col.name;
+                            btn.onclick = () => {
+                                if (state.colorTarget === 'base') {
+                                    state.baseColor = col;
+                                    state.multiColorBase = false;
+                                } else {
+                                    state.topColor = col;
+                                }
                                 renderColors();
                                 updatePreview();
                             };
-                            topGrid.appendChild(btnTop);
+                            grid.appendChild(btn);
                         });
                     }
 
-                    function toggleMoreFonts() {
-                      state.moreFontsOpen = !state.moreFontsOpen;
-                      document.getElementById('fontGridExtra').classList.toggle('hidden', !state.moreFontsOpen);
-                      document.getElementById('moreFontsArrow').textContent = state.moreFontsOpen ? '▲' : '▼';
+                    // --- ACTUALIZACIÓN DE RENDER FUENTES ---
+                    function renderFonts() {
+                        const c1 = document.getElementById('fontGridCursivas');
+                        const c2 = document.getElementById('fontGridMolde');
+                        const c3 = document.getElementById('fontGridUrbanas');
+                        if (!c1 || !c2 || !c3) return;
+
+                        const rawInput = state.fontTarget === 'line1' ? document.getElementById('inputLine1').value.trim() : document.getElementById('inputLine2').value.trim();
+                        const txt = rawInput || (state.fontTarget === 'line1' ? 'Linea 1' : 'Linea 2');
+
+                        const m = getCurrentModelObj();
+                        const geom = resolveModelGeometry(m);
+                        const requireConnected = (geom === 'single_color' || !!m.singleColor);
+
+                        c1.innerHTML = ''; c2.innerHTML = ''; c3.innerHTML = '';
+
+                        FONTS_CATALOG.forEach(f => {
+                            const isActive = (state.fontTarget === 'line1' && state.font.id === f.id) ||
+                                (state.fontTarget === 'line2' && state.font2 && state.font2.id === f.id);
+
+                            const isDisabled = requireConnected && !f.connected;
+
+                            const b = document.createElement('button');
+                            b.type = 'button';
+                            if (isDisabled) {
+                                b.disabled = true;
+                                b.className = 'p-2.5 rounded-xl border-2 border-gray-200 bg-gray-100 opacity-45 text-left cursor-not-allowed';
+                                b.innerHTML = '<div class="flex justify-between text-[10px] text-red-700 font-bold"><span>' + f.label + '</span><span>🔒 Sueltas</span></div><div class="text-lg truncate text-gray-400" style="font-family:' + f.css + ';">' + txt + '</div>';
+                            } else {
+                                const borderActiveColor = state.fontTarget === 'line1' ? 'border-[#1E4611]' : 'border-[#76B82A]';
+                                b.className = 'p-2.5 rounded-xl border-2 text-left cursor-pointer transition ' + (isActive ? borderActiveColor + ' bg-[#ECF7E1]/70 shadow-sm scale-[1.02]' : 'border-gray-200 bg-white hover:border-[#A8D164]');
+                                b.onclick = () => {
+                                    if (state.fontTarget === 'line1') state.font = f;
+                                    else state.font2 = f;
+                                    updatePreview();
+                                    renderFonts();
+                                };
+                                b.innerHTML = '<div class="flex justify-between text-[10px] text-gray-500 font-bold"><span>' + f.label + '</span><span class="text-[#1E4611]">' + f.category + '</span></div><div class="text-lg truncate text-[#1E4611]" style="font-family:' + f.css + ';">' + txt + '</div>';
+                            }
+
+                            if (['Pacifico', 'Lobster', 'Style Script', 'Birthstone', 'Birthstone Bounce', 'Pattaya', 'Dancing Script', 'Great Vibes', 'Sacramento'].includes(f.id)) {
+                                c1.appendChild(b);
+                            } else if (['Bungee', 'Nunito', 'Anton', 'Poppins', 'Mochiy Pop One', 'Fredoka', 'Sansita'].includes(f.id)) {
+                                c2.appendChild(b);
+                            } else {
+                                c3.appendChild(b);
+                            }
+                        });
                     }
-
-                    function createFontButton(f, txt, requireConnected) {
-                      const act = state.font.id === f.id;
-                      const isDisabled = requireConnected && !f.connected;
-                      const b = document.createElement('button');
-                      b.type = 'button';
-                      if (isDisabled) {
-                        b.disabled = true;
-                        b.className = 'p-2.5 rounded-xl border-2 border-gray-200 bg-gray-100 opacity-45 text-left cursor-not-allowed';
-                        b.innerHTML = '<div class="flex justify-between text-[10px] text-red-700 font-bold"><span>' + f.label + '</span><span>🔒 Sueltas</span></div><div class="text-lg truncate text-gray-400" style="font-family:' + f.css + ';">' + txt + '</div>';
-                      } else {
-                        b.className = 'p-2.5 rounded-xl border-2 text-left cursor-pointer transition ' + (act ? 'border-[#76B82A] bg-[#ECF7E1]/70 shadow-sm' : 'border-gray-200 bg-white hover:border-[#A8D164]');
-                        b.onclick = () => { state.font = f; updatePreview(); };
-                        b.innerHTML = '<div class="flex justify-between text-[10px] text-gray-500 font-bold"><span>' + f.label + '</span><span class="text-[#1E4611]">' + f.category + '</span></div><div class="text-lg truncate text-[#1E4611]" style="font-family:' + f.css + ';">' + txt + '</div>';
-                      }
-                      return b;
+                    function resetDoubleLineAdjustments() {
+                        if (document.getElementById('rangeLine2X')) document.getElementById('rangeLine2X').value = 0;
+                        if (document.getElementById('rangeLine2Y')) document.getElementById('rangeLine2Y').value = 34;
+                        if (document.getElementById('rangeLine2Scale')) document.getElementById('rangeLine2Scale').value = 85;
+                        updatePreview();
                     }
-
-function renderFonts() {
-            const c1 = document.getElementById('fontGridCursivas');
-            const c2 = document.getElementById('fontGridMolde');
-            const c3 = document.getElementById('fontGridUrbanas');
-            if (!c1 || !c2 || !c3) return;
-
-            const rawInput = document.getElementById('inputLine1').value.trim();
-            const txt = rawInput || 'Linea 1';
-            const m = getCurrentModelObj();
-            const geom = resolveModelGeometry(m);
-            const requireConnected = (geom === 'single_color' || !!m.singleColor);
-
-            c1.innerHTML = ''; c2.innerHTML = ''; c3.innerHTML = '';
-
-            FONTS_CATALOG.forEach(f => {
-                const btn = createFontButton(f, txt, requireConnected);
-                if (['Pacifico', 'Lobster', 'Style Script', 'Birthstone', 'Birthstone Bounce', 'Pattaya', 'Dancing Script', 'Great Vibes', 'Sacramento'].includes(f.id)) {
-                    c1.appendChild(btn);
-                } else if (['Bungee', 'Nunito', 'Anton', 'Poppins', 'Mochiy Pop One', 'Fredoka', 'Sansita'].includes(f.id)) {
-                    c2.appendChild(btn);
-                } else {
-                    c3.appendChild(btn);
-                }
-            });
-}
-
                     function updatePreview() {
-                      const raw1 = document.getElementById('inputLine1').value.trim();
-                      const raw2 = document.getElementById('inputLine2').value.trim();
-                      const l1 = raw1 || 'Linea 1';
-                      const l2 = raw2 || 'Linea 2';
-                      const m = getCurrentModelObj();
-                      const geom = resolveModelGeometry(m);
-                      const isMod = isModularGeometry(geom);
+                        const raw1 = document.getElementById('inputLine1').value.trim();
+                        const raw2 = document.getElementById('inputLine2').value.trim();
+                        const l1 = raw1 || 'Linea 1';
+                        const l2 = raw2 || 'Linea 2';
+                        const m = getCurrentModelObj();
+                        const geom = resolveModelGeometry(m);
+                        const isMod = isModularGeometry(geom);
 
-                      const multiBtn = document.getElementById('btnMultiColorToggle');
-                      if (multiBtn) {
-                        multiBtn.textContent = state.multiColorBase ? '🌈 Eslabones Multicolor: ACTIVO' : '🌈 Alternar Eslabones Multicolor: OFF';
-                        multiBtn.className = state.multiColorBase
-                          ? 'text-[11px] font-extrabold px-2.5 py-1 rounded-xl border-2 border-purple-700 bg-purple-600 text-white cursor-pointer shadow'
-                          : 'text-[11px] font-extrabold px-2.5 py-1 rounded-xl border-2 border-purple-500 bg-purple-50 text-purple-900 cursor-pointer shadow-sm';
-                        if (!isMod || geom === 'photo_card') multiBtn.classList.add('hidden');
-                      }
-
-                      const modLayer = document.getElementById('modularLayer');
-                      const classicLayer = document.getElementById('classicTextLayer');
-
-                      if (isMod) {
-                        classicLayer.classList.add('hidden');
-                        modLayer.classList.remove('hidden');
-                        renderModularKeychainSvg(geom, raw1 || 'ALBERTO', m);
-                      } else {
-                        modLayer.classList.add('hidden');
-                        classicLayer.classList.remove('hidden');
-
-                        const isD = (geom === 'double_line');
-                        const isR = (geom === 'round_tag' || !!m.isRoundTag);
-                        const isSingle = (geom === 'single_color' || !!m.singleColor);
-                        const isThin = (geom === 'thin_border' || !!m.thinBorder);
-                        const sw = (isSingle || isR) ? 0 : (isThin ? 16 : 32);
-
-                        const offsetX2 = isD && document.getElementById('rangeLine2X') ? parseInt(document.getElementById('rangeLine2X').value || '0', 10) : 0;
-                        const gapY2 = isD && document.getElementById('rangeLine2Y') ? parseInt(document.getElementById('rangeLine2Y').value || '34', 10) : 34;
-                        const scale2Pct = isD && document.getElementById('rangeLine2Scale') ? parseInt(document.getElementById('rangeLine2Scale').value || '85', 10) : 85;
-
-                        if (document.getElementById('lblLine2X')) document.getElementById('lblLine2X').textContent = (offsetX2 > 0 ? '+' : '') + offsetX2;
-                        if (document.getElementById('lblLine2Y')) document.getElementById('lblLine2Y').textContent = gapY2 <= 40 ? 'Unidas' : 'Separadas';
-                        if (document.getElementById('lblLine2Scale')) document.getElementById('lblLine2Scale').textContent = scale2Pct + '%';
-
-                        document.getElementById('roundTagGroup').classList.toggle('hidden', !isR);
-                        if (isR) {
-                          document.getElementById('roundTagBase').setAttribute('fill', state.baseColor.hex);
-                          document.getElementById('roundInitialText').textContent = (l1[0] || 'T').toUpperCase();
+                        // Botón multicolor
+                        const multiBtn = document.getElementById('btnMultiColorToggle');
+                        if (multiBtn) {
+                            multiBtn.textContent = state.multiColorBase ? '🌈 Eslabones Multicolor: ACTIVO' : '🌈 Alternar Eslabones Multicolor: OFF';
+                            multiBtn.className = state.multiColorBase
+                                ? 'text-[11px] font-extrabold px-2.5 py-1 rounded-xl border-2 border-purple-700 bg-purple-600 text-white cursor-pointer shadow'
+                                : 'text-[11px] font-extrabold px-2.5 py-1 rounded-xl border-2 border-purple-500 bg-purple-50 text-purple-900 cursor-pointer shadow-sm';
+                            if (!isMod || geom === 'photo_card') multiBtn.classList.add('hidden');
                         }
 
-                        const baseFontSize1 = l1.length > 10 ? 48 : 62;
-                        const baseFontSize2 = Math.round(baseFontSize1 * (scale2Pct / 100));
-                        const yLine1 = isD ? 96 : 124;
-                        const yLine2 = yLine1 + gapY2;
+                        const modLayer = document.getElementById('modularLayer');
+                        const classicLayer = document.getElementById('classicTextLayer');
 
-                        ['svgTextShadow1', 'svgTextBase1', 'svgTextTop1'].forEach(id => {
-                          const el = document.getElementById(id);
-                          el.textContent = l1;
-                          el.style.fontFamily = state.font.css;
-                          el.setAttribute('font-size', baseFontSize1);
-                          el.setAttribute('x', 250);
-                          el.setAttribute('y', yLine1);
-                        });
+                        // --- RENDER MODULAR ---
+                        if (isMod) {
+                            classicLayer.classList.add('hidden');
+                            modLayer.classList.remove('hidden');
+                            renderModularKeychainSvg(geom, raw1 || 'ALBERTO', m);
+                        }
+                        // --- RENDER CLÁSICO ---
+                        else {
+                            modLayer.classList.add('hidden');
+                            classicLayer.classList.remove('hidden');
 
-                        const tb1 = document.getElementById('svgTextBase1');
-                        const tt1 = document.getElementById('svgTextTop1');
-                        tb1.classList.toggle('hidden', isSingle || isR);
-                        tb1.setAttribute('stroke-width', sw);
-                        document.getElementById('svgTextShadow1').setAttribute('stroke-width', sw);
-                        tb1.setAttribute('fill', state.baseColor.hex);
-                        tb1.setAttribute('stroke', state.baseColor.hex);
-                        tt1.setAttribute('fill', state.topColor.hex);
-                        tt1.setAttribute('stroke', state.topColor.hex);
+                            const isD = (geom === 'double_line');
+                            const isR = (geom === 'round_tag' || !!m.isRoundTag);
+                            const isSingle = (geom === 'single_color' || !!m.singleColor);
+                            const isThin = (geom === 'thin_border' || !!m.thinBorder);
+                            const sw = (isSingle || isR) ? 0 : (isThin ? 16 : 32);
 
-                        ['svgTextShadow2', 'svgTextBase2', 'svgTextTop2'].forEach(id => {
-                          const el = document.getElementById(id);
-                          el.classList.toggle('hidden', !isD);
-                          el.textContent = l2;
-                          el.style.fontFamily = state.font.css;
-                          el.setAttribute('font-size', baseFontSize2);
-                          el.setAttribute('x', 250 + offsetX2);
-                          el.setAttribute('y', yLine2);
-                        });
-                        const tb2 = document.getElementById('svgTextBase2');
-                        const tt2 = document.getElementById('svgTextTop2');
-                        tb2.setAttribute('stroke-width', sw);
-                        document.getElementById('svgTextShadow2').setAttribute('stroke-width', sw);
-                        tb2.setAttribute('fill', state.baseColor.hex);
-                        tb2.setAttribute('stroke', state.baseColor.hex);
-                        tt2.setAttribute('fill', state.topColor.hex);
-                        tt2.setAttribute('stroke', state.topColor.hex);
+                            const offsetX2 = isD && document.getElementById('rangeLine2X') ? parseInt(document.getElementById('rangeLine2X').value || '0', 10) : 0;
+                            const gapY2 = isD && document.getElementById('rangeLine2Y') ? parseInt(document.getElementById('rangeLine2Y').value || '34', 10) : 34;
+                            const scale2Pct = isD && document.getElementById('rangeLine2Scale') ? parseInt(document.getElementById('rangeLine2Scale').value || '85', 10) : 85;
 
-                        document.getElementById('leftHoleGroup').classList.toggle('hidden', isR);
-                        document.getElementById('leftEarBase').setAttribute('fill', isSingle ? state.topColor.hex : state.baseColor.hex);
-                        document.getElementById('rightEarBase').setAttribute('fill', isSingle ? state.topColor.hex : state.baseColor.hex);
-                        document.getElementById('rightHoleGroup').classList.toggle('hidden', !(geom === 'charm' || geom === 'bracelet'));
-                        document.getElementById('charmGroup').classList.toggle('hidden', geom !== 'charm');
-                        document.getElementById('charmIconText').textContent = state.charmEmoji;
+                            if (document.getElementById('lblLine2X')) document.getElementById('lblLine2X').textContent = (offsetX2 > 0 ? '+' : '') + offsetX2;
+                            if (document.getElementById('lblLine2Y')) document.getElementById('lblLine2Y').textContent = gapY2 <= 40 ? 'Unidas' : 'Separadas';
+                            if (document.getElementById('lblLine2Scale')) document.getElementById('lblLine2Scale').textContent = scale2Pct + '%';
 
-                        try {
-                          const bbox = tt1.getBBox();
-                          if (bbox && bbox.width > 0 && !isR) {
-                            const leftEdgeX = Math.max(48, Math.round(bbox.x - (sw * 0.42)));
-                            const earY = isD ? yLine1 - 16 : 108;
-                            document.getElementById('leftHoleGroup').setAttribute('transform', 'translate(' + leftEdgeX + ',' + earY + ')');
-                            document.getElementById('metalRingGroup').setAttribute('transform', 'translate(' + (leftEdgeX - 14) + ',' + earY + ')');
-                          }
-                        } catch (e) {}
-                      }
+                            document.getElementById('roundTagGroup').classList.toggle('hidden', !isR);
+                            if (isR) {
+                                document.getElementById('roundTagBase').setAttribute('fill', state.baseColor.hex);
+                                document.getElementById('roundInitialText').textContent = (l1[0] || 'T').toUpperCase();
+                            }
 
-                      const baseLabel = ( isMod && state.multiColorBase ) ? 'Arcoíris Multicolor' : state.baseColor.name;
-                      if (document.getElementById('baseColorName')) document.getElementById('baseColorName').textContent = baseLabel;
-                      if (document.getElementById('topColorName')) document.getElementById('topColorName').textContent = state.topColor.name;
-                      const isSingleCol = (geom === 'single_color' || !!m.singleColor);
-                      document.getElementById('liveColorSummary').textContent = isSingleCol ? ('1 Color Sólido: ' + state.topColor.name) : ('Base: ' + baseLabel + ' • Letra: ' + state.topColor.name);
-                      document.getElementById('liveFontSummary').textContent = 'Fuente: ' + state.font.label;
+                            const baseFontSize1 = l1.length > 10 ? 48 : 62;
+                            const baseFontSize2 = Math.round(baseFontSize1 * (scale2Pct / 100));
+                            const yLine1 = isD ? 96 : 124;
+                            const yLine2 = yLine1 + gapY2;
 
-                      const isV = state.role === 'vendor';
-                      document.getElementById('displayPrice').textContent = CUR + (isV ? m.vendorPrice : m.publicPrice) + ' MXN';
-                      const pt = document.getElementById('vendorProfitTag');
-                      pt.classList.toggle('hidden', !isV);
-                      if (isV) pt.textContent = 'Público: ' + CUR + m.publicPrice + SEP + 'Ganancia: ' + CUR + (m.publicPrice - m.vendorPrice);
+                            // LÍNEA 1
+                            ['svgTextShadow1', 'svgTextBase1', 'svgTextTop1'].forEach(id => {
+                                const el = document.getElementById(id);
+                                if (el) {
+                                    el.textContent = l1;
+                                    el.style.fontFamily = state.font.css;
+                                    el.setAttribute('font-size', baseFontSize1);
+                                    el.setAttribute('x', 250);
+                                    el.setAttribute('y', yLine1);
+                                }
+                            });
 
-                      renderFonts();
+                            const tb1 = document.getElementById('svgTextBase1');
+                            const tt1 = document.getElementById('svgTextTop1');
+                            if (tb1 && tt1) {
+                                tb1.classList.toggle('hidden', isSingle || isR);
+                                tb1.setAttribute('stroke-width', sw);
+                                const ts1 = document.getElementById('svgTextShadow1');
+                                if (ts1) ts1.setAttribute('stroke-width', sw);
+                                tb1.setAttribute('fill', state.baseColor.hex);
+                                tb1.setAttribute('stroke', state.baseColor.hex);
+                                tt1.setAttribute('fill', state.topColor.hex);
+                                tt1.setAttribute('stroke', state.topColor.hex);
+                            }
+
+                            // CONTROLES UI
+                            const fontSelector = document.getElementById('fontTargetSelector');
+                            if (fontSelector) fontSelector.classList.toggle('hidden', !isD);
+                            if (!isD && state.fontTarget === 'line2') setFontTarget('line1');
+
+                            const btnBaseColor = document.getElementById('btnColorTargetBase');
+                            if (btnBaseColor) {
+                                if (isSingle) {
+                                    btnBaseColor.classList.add('hidden');
+                                    if (state.colorTarget === 'base') setColorTarget('top');
+                                } else {
+                                    btnBaseColor.classList.remove('hidden');
+                                }
+                            }
+
+                            // LÍNEA 2
+                            ['svgTextShadow2', 'svgTextBase2', 'svgTextTop2'].forEach(id => {
+                                const el = document.getElementById(id);
+                                if (el) {
+                                    el.classList.toggle('hidden', !isD);
+                                    el.textContent = l2;
+                                    el.style.fontFamily = (state.font2 || state.font).css;
+                                    el.setAttribute('font-size', baseFontSize2);
+                                    el.setAttribute('x', 250 + offsetX2);
+                                    el.setAttribute('y', yLine2);
+                                }
+                            });
+
+                            const tb2 = document.getElementById('svgTextBase2');
+                            const tt2 = document.getElementById('svgTextTop2');
+                            if (tb2 && tt2) {
+                                tb2.setAttribute('stroke-width', sw);
+                                const ts2 = document.getElementById('svgTextShadow2');
+                                if (ts2) ts2.setAttribute('stroke-width', sw);
+                                tb2.setAttribute('fill', state.baseColor.hex);
+                                tb2.setAttribute('stroke', state.baseColor.hex);
+                                tt2.setAttribute('fill', state.topColor.hex);
+                                tt2.setAttribute('stroke', state.topColor.hex);
+                            }
+
+                            document.getElementById('leftHoleGroup').classList.toggle('hidden', isR);
+                            document.getElementById('leftEarBase').setAttribute('fill', isSingle ? state.topColor.hex : state.baseColor.hex);
+                            document.getElementById('rightEarBase').setAttribute('fill', isSingle ? state.topColor.hex : state.baseColor.hex);
+                            document.getElementById('rightHoleGroup').classList.toggle('hidden', !(geom === 'charm' || geom === 'bracelet'));
+                            document.getElementById('charmGroup').classList.toggle('hidden', geom !== 'charm');
+                            document.getElementById('charmIconText').textContent = state.charmEmoji;
+
+                            // ALINEACIÓN INTELIGENTE DE ARGOLLA
+                            const alignRing = () => {
+                                try {
+                                    let finalBboxX = 250;
+                                    if (tt1) {
+                                        const bbox1 = tt1.getBBox();
+                                        if (bbox1 && bbox1.width > 0) finalBboxX = bbox1.x;
+
+                                        if (isD && tt2) {
+                                            const bbox2 = tt2.getBBox();
+                                            // Si Línea 2 es más ancha hacia la izquierda, ajustar argolla
+                                            if (bbox2 && bbox2.width > 0 && bbox2.x < finalBboxX) {
+                                                finalBboxX = bbox2.x;
+                                            }
+                                        }
+
+                                        if (bbox1 && bbox1.width > 0 && !isR) {
+                                            const leftEdgeX = Math.max(48, Math.round(finalBboxX - (sw * 0.42)));
+                                            const earY = isD ? yLine1 - 16 : 108;
+                                            document.getElementById('leftHoleGroup').setAttribute('transform', 'translate(' + leftEdgeX + ',' + earY + ')');
+                                            document.getElementById('metalRingGroup').setAttribute('transform', 'translate(' + (leftEdgeX - 14) + ',' + earY + ')');
+                                        }
+                                    }
+                                } catch (e) { }
+                            };
+
+                            alignRing();
+                            setTimeout(alignRing, 60);
+                        } // fin else
+
+                        // --- ACTUALIZAR ETIQUETAS, PRECIOS Y FUENTES ---
+                        const baseLabel = (isMod && state.multiColorBase) ? 'Arcoíris Multicolor' : state.baseColor.name;
+                        if (document.getElementById('baseColorName')) document.getElementById('baseColorName').textContent = baseLabel;
+                        if (document.getElementById('topColorName')) document.getElementById('topColorName').textContent = state.topColor.name;
+
+                        const isSingleCol = (geom === 'single_color' || !!m.singleColor);
+                        const sumEl = document.getElementById('liveColorSummary');
+                        if (sumEl) sumEl.textContent = isSingleCol ? ('1 Color Sólido: ' + state.topColor.name) : ('Base: ' + baseLabel + ' • Letra: ' + state.topColor.name);
+
+                        const fontEl = document.getElementById('liveFontSummary');
+                        if (fontEl) fontEl.textContent = 'Fuente: ' + state.font.label;
+
+                        const isV = state.role === 'vendor';
+                        const priceEl = document.getElementById('displayPrice');
+                        if (priceEl) priceEl.textContent = CUR + (isV ? m.vendorPrice : m.publicPrice) + ' MXN';
+
+                        const pt = document.getElementById('vendorProfitTag');
+                        if (pt) {
+                            pt.classList.toggle('hidden', !isV);
+                            if (isV) pt.textContent = 'Público: ' + CUR + m.publicPrice + ' | Ganancia: ' + CUR + (m.publicPrice - m.vendorPrice);
+                        }
+
+                        // Esta es la línea que no se ejecutaba antes porque la app se bloqueaba:
+                        renderFonts();
                     }
 
 // ____________________________________________________
